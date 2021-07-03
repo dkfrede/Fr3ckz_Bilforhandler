@@ -7,6 +7,7 @@ Citizen.CreateThread(function()
 end)
 
 local counter = 0
+local vehicleOut = false
 
 Citizen.CreateThread(function()
 	while true do
@@ -29,6 +30,31 @@ Citizen.CreateThread(function ()
                         openMenu()
                     end
                 end)
+            end
+        end
+    end
+end)
+
+Citizen.CreateThread(function ()
+    while true do
+    local ped = PlayerPedId()
+        Citizen.Wait(1)
+        if vehicleOut == true and IsPedInAnyVehicle(GetPlayerPed(-1), false) then
+            DrawMarker(27, -35.978172302246,-1105.0877685547,26.422369003296-1, 0, 0, 0, 0, 0, 0, 3.001, 3.0001, 0.5001, 255, 255, 255, 200, 0, 1, 0, 50)
+            if GetDistanceBetweenCoords(GetEntityCoords(ped), -35.978172302246,-1105.0877685547,26.422369003296, true) <= 5 then
+                DrawText3Ds(-35.978172302246,-1105.0877685547,26.422369003296, "~w~[E] Indsæt Køretøj")
+                    if IsControlJustReleased(0, 38) then
+                    vehicleOut = false
+                    ped = GetPlayerPed( -1 )
+                    if ( ped ) then 
+                    inVehicle = IsPedSittingInAnyVehicle( ped )
+                    if ( inVehicle ) then 
+                    car = GetVehiclePedIsIn( ped, false )
+                    SetEntityAsMissionEntity( car, true, true )
+                    deleteCar( car )
+                    end
+                    end
+                end
             end
         end
     end
@@ -105,6 +131,7 @@ function openMenu()
                         local ped = PlayerPedId()
                         SetPedIntoVehicle(ped, vehicle, -1)
                         SetVehicleDirtLevel(vehicle, 0.1)
+                        vehicleOut = true
                     end)
                 end
             end)
@@ -136,4 +163,8 @@ function DrawText3Ds(x,y,z, text)
 	DrawText(_x,_y)
 	local factor = (string.len(text)) / 370
 	DrawRect(_x,_y+0.0125, 0.015+ factor, 0.03, 20, 20, 20, 150)
+end
+
+function deleteCar( entity )
+    Citizen.InvokeNative( 0xEA386986E786A54F, Citizen.PointerValueIntInitialized( entity ) )
 end
