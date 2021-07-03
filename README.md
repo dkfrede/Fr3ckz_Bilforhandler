@@ -5,3 +5,4 @@
 
 [Update - 03-07-2021]
 - Du kan nu når du har trækket et køretøj ud, kan du indsætte det igen.
+- Fixet så du ikke behøver og have MySQL-Async
