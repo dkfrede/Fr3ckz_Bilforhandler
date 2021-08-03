@@ -8,6 +8,7 @@
 - Fixet "givbil" funktionen.
 - Lavet et lille fix, så scriptet ikke æder så mangle ms.
 - Ændret, så du har logs til basicly alt, så du kan holde styr på alt.
+- Addet en "customer" command så du kan skrive til bilforhandlere, som du kan customize i configen.
 - Addet så du kan indsætte køretøjet, efter du har fremvist det.
 - Og meget mere!
 
