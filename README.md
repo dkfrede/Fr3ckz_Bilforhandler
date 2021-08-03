@@ -6,6 +6,7 @@
 [Update - 03-08-2021]
 > Bilforhandler-admin-menu (vises i showcasen)
 > Fixet "givbil" funktionen.
+> Lavet et lille fix, så scriptet ikke æder så mangle ms.
 > Addet så du kan indsætte køretøjet, efter du har fremvist det.
 > Og meget mere!
 
