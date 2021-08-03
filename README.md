@@ -7,6 +7,7 @@
 > Bilforhandler-admin-menu (vises i showcasen)
 > Fixet "givbil" funktionen.
 > Lavet et lille fix, så scriptet ikke æder så mangle ms.
+> Ændret, så du har logs til basicly alt, så du kan holde styr på alt.
 > Addet så du kan indsætte køretøjet, efter du har fremvist det.
 > Og meget mere!
 
